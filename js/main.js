@@ -158,10 +158,49 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
 
+  const picture = document.createElement('picture');
+  const source0 = document.createElement('source');
+  const source1 = document.createElement('source');
+  const source2 = document.createElement('source');
+  const source3 = document.createElement('source');
+  const source4 = document.createElement('source');
+  const source5 = document.createElement('source');
   const image = document.createElement('img');
-  image.className = 'restaurant-img';
+  
+  picture.className = 'restaurant-picture';
+  image.className = 'restaurant-img';  
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  li.append(image);
+  
+  source0.srcset = DBHelper.srcset_large_jpg(restaurant);
+  source0.media  = "(min-width: 750px)";
+  source0.type   = "image/jpeg";
+  
+  source1.srcset = DBHelper.srcset_large_webp(restaurant);
+  source1.media  = "(min-width: 750px)";
+  source1.type = "image/webp";
+  
+  source2.srcset = DBHelper.srcset_medium_webp(restaurant);
+  source2.media  = "(min-width: 500px)";
+  source2.type = "image/webp";
+  
+  source3.srcset = DBHelper.srcset_medium_jpg(restaurant);
+  source3.media  = "(min-width: 500px)";
+  source3.type = "image/jpeg";
+  
+  source4.srcset = DBHelper.srcset_small_jpg(restaurant);
+  source4.type = "image/jpeg";
+  
+  source5.srcset = DBHelper.srcset_small_webp(restaurant);
+  source5.type = "image/webp";
+  
+  li.append(picture);    
+  picture.append(source0);
+  picture.append(source1);
+  picture.append(source2);
+  picture.append(source3);
+  picture.append(source4);
+  picture.append(source5);
+  picture.append(image); 
 
   const name = document.createElement('h1');
   name.innerHTML = restaurant.name;

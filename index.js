@@ -12,9 +12,12 @@ app.use('/css', express.static('css'))
 app.use('/data', express.static('data'))
 
 app.get('/', (req, res) =>  {
-  res.sendFile(__dirname + '/'); 
+  res.sendFile(__dirname + '/');  
 });
 
+app.get('/restaurant.html', (req, res) =>  {
+  res.sendFile(__dirname + '/restaurant.html');  
+});
 
 
 http.listen(80, () => console.log('listening on *:80'));

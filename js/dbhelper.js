@@ -152,6 +152,28 @@ class DBHelper {
   static imageUrlForRestaurant(restaurant) {
     return (`/img/${restaurant.photograph}`);
   }
+  
+  /**
+   * Images Srcset.
+   */
+	static srcset_large_webp(restaurant) {
+		return (`${restaurant.srcset_large_webp}`);
+	}
+	static srcset_large_jpg(restaurant) {
+		return (`${restaurant.srcset_large_jpg}`);
+	}
+	static srcset_medium_webp(restaurant) {
+		return (`${restaurant.srcset_medium_webp}`);
+	}
+	static srcset_medium_jpg(restaurant) {
+		return (`${restaurant.srcset_medium_jpg}`);
+	}
+	static srcset_small_webp(restaurant) {
+		return (`${restaurant.srcset_small_webp}`);
+	}
+	static srcset_small_jpg(restaurant) {
+		return (`${restaurant.srcset_small_jpg}`);
+	}
 
   /**
    * Map marker for a restaurant.

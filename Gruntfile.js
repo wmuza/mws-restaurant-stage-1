@@ -43,7 +43,7 @@ module.exports = function(grunt) {
           expand: true,
           src: ['*.{gif,jpg,png}'],
           cwd: 'images_src/',
-          dest: 'images/'
+          dest: 'img/'
         }]
       },
 
@@ -58,9 +58,9 @@ module.exports = function(grunt) {
         },
         files: [{
             expand: true,
-            src: ['**/large_*.{jpg,gif,png}'], //Selects all files that begins with 'large_'
+            //src: ['**/large_*.{jpg,gif,png}'], //Selects all files that begins with 'large_'
             cwd: 'images_src/art_direction',
-            dest: 'images/'
+            dest: 'img/'
         }]
     },
     medium_art_direction: {
@@ -69,9 +69,9 @@ module.exports = function(grunt) {
         },
         files: [{
             expand: true,
-            src: ['**/medium_*.{jpg,gif,png}'], //Selects all files that begins with 'medium_'
+            //src: ['**/medium_*.{jpg,gif,png}'], //Selects all files that begins with 'medium_'
             cwd: 'images_src/art_direction',
-            dest: 'images/'
+            dest: 'img/'
         }]
     },
     small_art_direction: {
@@ -80,9 +80,9 @@ module.exports = function(grunt) {
         },
         files: [{
             expand: true,
-            src: ['**/small_*.{jpg,gif,png}'], //Selects all files that begins with 'small_'
+            src: ['**/*.{jpg,gif,png}'], //Selects all files
             cwd: 'images_src/art_direction',
-            dest: 'images/'
+            dest: 'img/'
         }]
     },
 },
@@ -93,8 +93,8 @@ module.exports = function(grunt) {
       files: {
         expand: true,
           src: ['*.{gif,jpg,png}'],
-          cwd: 'images/',
-          dest: 'images/'
+          cwd: 'img/',
+          dest: 'img/'
       },
       options: {
         binpath: require('webp-bin').path,
@@ -124,7 +124,7 @@ module.exports = function(grunt) {
     /* Clear out the images directory if it exists */
     clean: {
       dev: {
-        src: ['images'],
+        src: ['img'],
       },
     },
 
@@ -132,7 +132,7 @@ module.exports = function(grunt) {
     mkdir: {
       dev: {
         options: {
-          create: ['images']
+          create: ['img']
         },
       },
     },
