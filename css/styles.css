@@ -18,7 +18,7 @@ ul, li {
 	color: #333;
 }
 a {
-  color: orange;
+  color: #ddd;
 	text-decoration: none;
 }
 a:hover, a:focus {
@@ -44,7 +44,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 }
 
 #footer {
-  background-color: #444;
+  background-color: #252831;
   color: #f3f3f3;
   font-size: 8pt;
   letter-spacing: 1px;
@@ -54,16 +54,17 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 }
 /* ====================== Navigation ====================== */
 nav {
-  width: 100%;
-  height: 80px;
-  background-color: #252831;
-  text-align:center;
+	width: 100%;
+    height: 80px;
+    background-color: #252831;
+    text-align: center;
+    display: flex;
 }
 nav h1 {
   margin: auto;
 }
 nav h1 a {
-  color: #fff;
+  color: #ddd;
   font-size: 14pt;
   font-weight: 200;
   letter-spacing: 10px;
@@ -91,7 +92,7 @@ nav h1 a {
 
 /* Add a color to all links inside the list */
 #breadcrumb li a {
-    color: #444;
+    color: #252831;
     text-decoration: none;
 }
 
@@ -132,7 +133,7 @@ nav h1 a {
 .filter-options {
   display: flex;
   width: 100%;
-  background-color: #185d8c;
+  background-color: #252831;
   flex-grow: 1;
   flex-direction: column;
   align-items: center;
@@ -187,7 +188,7 @@ nav h1 a {
 }
 #restaurants-list li {
   background-color: #fff;
-  border: 2px solid #ccc;
+  border: 2px solid #252831;
   font-family: Arial,sans-serif;
   min-height: 380px;
   padding: 0 30px 25px;
@@ -206,7 +207,7 @@ nav h1 a {
 }
 
 #restaurants-list li h1 {
-  color: #444;
+  color: #252831;
   font-family: Arial,sans-serif;
   font-size: 14pt;
   font-weight: 200;
@@ -220,8 +221,8 @@ nav h1 a {
   font-size: 11pt;
 }
 #restaurants-list li a {
-  background-color: #444;
-  color: orange;
+  background-color: #252831;
+  color: #ddd;
   border-bottom: 3px solid #eee;
   display: inline-block;
   font-size: 10pt;
@@ -244,7 +245,7 @@ nav h1 a {
 }
 
 #restaurant-name {
-  color: #444;
+  color: #252831;
   font-family: Arial,sans-serif;
   font-size: 20pt;
   font-weight: 200;
@@ -281,7 +282,7 @@ nav h1 a {
 }
 
 #reviews-container h2 {
-  color: #444;
+  color: #252831;
   font-size: 24pt;
   font-weight: 300;
   letter-spacing: -1px;
