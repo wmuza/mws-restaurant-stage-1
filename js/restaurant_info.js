@@ -92,7 +92,9 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   image.srcset = `${DBHelper.srcset_medium_jpg(restaurant)}, ${DBHelper.srcset_large_jpg(restaurant)}`;
   image.sizes = "(max-width: 635px) 600px, (min-width: 636px) 400px";
   
-  
+  const altText = restaurant.name + ' restaurant in ' + restaurant.neighborhood;
+  image.title = altText;
+  image.alt = altText;
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;

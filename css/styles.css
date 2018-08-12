@@ -98,8 +98,9 @@ nav h1 a {
 
 /* Add a color on mouse-over */
 #breadcrumb li a:hover {
-    color: #01447e;
+    color: #333;
     text-decoration: underline;
+    border: none;
 }
 /* ====================== Map ====================== */
 #map {
@@ -214,17 +215,22 @@ nav h1 a {
   margin: 0;
   font-size: 11pt;
 }
-#restaurants-list li a {
+#restaurants-list li button {
   background-color: #252831;
-  color: #ddd;
+  color: #fff;
+  border: none;
   display: inline-block;
   margin: 15px 0 0;
-  padding: 8px 30px 10px;
+  padding: 15px 30px 15px;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
 }
-#restaurants-list li a, #restaurants-list li p, #restaurants-list li h1 {
+#restaurants-list li button:hover {
+  color: #ccc;
+  cursor: pointer;
+}
+#restaurants-list li button, #restaurants-list li p, #restaurants-list li h1 {
     margin: auto 10px;
 }
 
