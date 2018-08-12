@@ -40,9 +40,10 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   height: 100%;
   display: flex;
   flex-direction: column;
+}
+.inside #maincontent {
   padding: 0 10px;
 }
-
 #footer {
   background-color: #252831;
   color: #f3f3f3;
@@ -116,7 +117,7 @@ nav h1 a {
 }
 
 #maincontent-top > #map-container, #maincontent-top > #map-container > #map {
-  height: 200px;
+  height: 400px;
 }
 
 .inside #map-container {
@@ -164,7 +165,7 @@ nav h1 a {
   align-items: center;
 }
 
-@media (min-width:481px)  { 
+@media (min-width:701px)  { 
   .filter-options {
     flex-direction: row;
   }
@@ -351,16 +352,22 @@ nav h1 a {
   #restaurant-container{
 	padding: 0 10px;
   }
-  
 }
 @media screen and (max-width: 768px) {
   #reviews-container h2 {
     width: 100%;
   }
-  #reviews-list li {
-    width: 94%;
-  }
   #restaurants-list li {
     width: 270px;
+  }
+}
+@media (max-width:700px)  { 
+  #reviews-list li {
+    max-width: 100%;
+    width: auto;
+  }
+  .filter-options h2 {
+    width: 100%;
+    text-align: center;
   }
 }
