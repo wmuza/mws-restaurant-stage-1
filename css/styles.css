@@ -133,10 +133,8 @@ nav h1 a {
 .filter-options {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
   padding: 10px;
   background-color: #252831;
-  flex-grow: 1;
   flex-direction: column;
   align-items: center;
 }
@@ -145,7 +143,7 @@ nav h1 a {
   font-size: 1rem;
   font-weight: normal;
   line-height: 1;
-  margin: 0 10px;
+  margin: 10px;
 }
 .filter-options select {
   background-color: white;
@@ -180,7 +178,7 @@ nav h1 a {
   background-color: #f3f3f3;
   list-style: outside none none;
   margin: 0;
-  padding: 30px 15px 60px;
+  padding: 30px 0px 60px;
   text-align: center;
 }
 #restaurants-list li {
@@ -190,8 +188,8 @@ nav h1 a {
   min-height: 380px;
   padding: 0px;
   text-align: left;
-  width: 270px;
-  margin: 10px;
+  width: 300px;
+  margin: 15px 0;
   display: flex;
   flex-direction: column;
 }
@@ -245,7 +243,6 @@ nav h1 a {
   color: #252831;
   font-family: Arial,sans-serif;
   font-size: 20pt;
-  font-weight: 200;
   letter-spacing: 0;
   margin: 25px 0 20px;
   text-align: center;
@@ -283,7 +280,6 @@ nav h1 a {
 #reviews-container h2 {
   color: #252831;
   font-size: 2em;
-  font-weight: 300;
   letter-spacing: -1px;
   padding: 15px 0 0;
 }
@@ -357,5 +353,8 @@ nav h1 a {
   }
   #reviews-list li {
     width: 94%;
+  }
+  #restaurants-list li {
+    width: 270px;
   }
 }
