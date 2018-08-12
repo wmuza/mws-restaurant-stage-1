@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -30,13 +30,13 @@
     </section>
 	<!-- End map -->
     <!-- Beginning restaurant filter options -->
-    <section aria-labelledby="filter-label" role="region">
+    <section role="region">
       <div class="filter-options">
         <h2>Filter Results</h2>
-        <select tabindex="1" id="neighborhoods-select" name="neighborhoods" aria-label="Select Neighborhood" onchange="updateRestaurants()">
+        <select id="neighborhoods-select" name="neighborhoods" aria-label="Select Neighborhood" onchange="updateRestaurants()">
           <option value="all">All Neighborhoods</option>
         </select>
-        <select tabindex="2" id="cuisines-select" name="cuisines" aria-label="Select Cusisine" onchange="updateRestaurants()">
+        <select id="cuisines-select" name="cuisines" aria-label="Select Cusisine" onchange="updateRestaurants()">
           <option value="all">All Cuisines</option>
         </select>
       </div>
@@ -56,7 +56,7 @@
   <!-- Main javascript file -->
   <script type="application/javascript" charset="utf-8" src="js/main.js"></script>
   <!-- Register a service worker on the site -->
-  <script type="application/javascript" charset="utf-8" src="js/register_sw.js"></script>
+  <script async defer type="application/javascript" charset="utf-8" src="js/register_sw.js"></script>
   <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places&callback=initMap"></script> -->
 
 

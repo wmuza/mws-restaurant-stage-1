@@ -34,7 +34,9 @@ h1, h2, h3, h4, h5, h6 {
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summery {
 	display: block;
 }
-
+.leaflet-container a {
+    color: blue !important;
+}
 #maincontent {
   background-color: #f3f3f3;
   height: 100%;
