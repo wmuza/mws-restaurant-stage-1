@@ -11,7 +11,7 @@ class DBHelper {
     const port = 80 // Change this to your server port
 	const host = window.location.href; // getting the host url
     //return `${host}:${port}/data/restaurants.json`;
-	return `${host}:data/restaurants.json`;
+	return `${host}data/restaurants.json`;
   }
 
   /**
