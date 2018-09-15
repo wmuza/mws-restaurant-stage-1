@@ -116,5 +116,7 @@ npm-debug.log
 nbproject
 .idea
 .node_history
-
+build/
+dist/
+tmp/
 expressindex.js

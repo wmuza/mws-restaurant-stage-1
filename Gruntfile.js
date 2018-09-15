@@ -42,8 +42,8 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           src: ['*.{gif,jpg,png}'],
-          cwd: 'images_src/',
-          dest: 'img/'
+          cwd: 'app/images_src/',
+          dest: 'app/img/'
         }]
       },
 
@@ -59,8 +59,8 @@ module.exports = function(grunt) {
         files: [{
             expand: true,
             //src: ['**/large_*.{jpg,gif,png}'], //Selects all files that begins with 'large_'
-            cwd: 'images_src/art_direction',
-            dest: 'img/'
+            cwd: 'app/images_src/art_direction',
+            dest: 'app/img/'
         }]
     },
     medium_art_direction: {
@@ -70,8 +70,8 @@ module.exports = function(grunt) {
         files: [{
             expand: true,
             //src: ['**/medium_*.{jpg,gif,png}'], //Selects all files that begins with 'medium_'
-            cwd: 'images_src/art_direction',
-            dest: 'img/'
+            cwd: 'app/images_src/art_direction',
+            dest: 'app/img/'
         }]
     },
     small_art_direction: {
@@ -81,8 +81,8 @@ module.exports = function(grunt) {
         files: [{
             expand: true,
             src: ['**/*.{jpg,gif,png}'], //Selects all files
-            cwd: 'images_src/art_direction',
-            dest: 'img/'
+            cwd: 'app/images_src/art_direction',
+            dest: 'app/img/'
         }]
     },
 },
@@ -93,8 +93,8 @@ module.exports = function(grunt) {
       files: {
         expand: true,
           src: ['*.{gif,jpg,png}'],
-          cwd: 'img/',
-          dest: 'img/'
+          cwd: 'app/img/',
+          dest: 'app/img/'
       },
       options: {
         binpath: require('webp-bin').path,
@@ -124,7 +124,7 @@ module.exports = function(grunt) {
     /* Clear out the images directory if it exists */
     clean: {
       dev: {
-        src: ['img'],
+        src: ['app/img'],
       },
     },
 
@@ -132,7 +132,7 @@ module.exports = function(grunt) {
     mkdir: {
       dev: {
         options: {
-          create: ['img']
+          create: ['app/img']
         },
       },
     },
