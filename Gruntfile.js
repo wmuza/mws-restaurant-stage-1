@@ -1,9 +1,25 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
+	/* Clear out the dist directory if it exists */
+    clean: {
+      dev: {
+        src: ['dist/*'],
+      },
+    },
+	//copy all app files to the dist folder
+	copy: {
+	  dev: {
+		files: [
+		  { expand: true, cwd: 'app/', src: ['sw.js'], dest: 'dist/'},
+		  { expand: true, cwd: 'app/', src: ['css/*'], dest: 'dist/' },
+		  { expand: true, cwd: 'app/', src: ['js/*'], dest: 'dist/'},
+		  { expand: true, cwd: 'app/', src: ['img/*'], dest: 'dist/' }
+		]
+	  }
+	},
     responsive_images: {
     //Resolution-Switching Cases here
-
       resolution_switch_case: {
         options: {
           engine: 'im',
@@ -119,31 +135,13 @@ module.exports = function(grunt) {
         noAlpha: false,
         lossless: false
       }
-    },
-
-    /* Clear out the images directory if it exists */
-    clean: {
-      dev: {
-        src: ['app/img'],
-      },
-    },
-
-    /* Generate the images directory if it is missing */
-    mkdir: {
-      dev: {
-        options: {
-          create: ['app/img']
-        },
-      },
-    },
-
+    }
   });
 
   grunt.loadNpmTasks('grunt-responsive-images');
   grunt.loadNpmTasks('grunt-webp');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-mkdir');
-  grunt.registerTask('default', ['clean', 'mkdir', 'responsive_images', 'webp']);
+  grunt.registerTask('default', ['clean', 'copy', 'responsive_images', 'webp']);
 
 };
