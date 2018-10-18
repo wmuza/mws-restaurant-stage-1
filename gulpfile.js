@@ -13,40 +13,26 @@ const reload = browserSync.reload;
 
 let dev = true;
 
-<<<<<<< HEAD
 gulp.task('styles', () => { 
   return gulp.src('app/css/*.css')
     .pipe($.if(dev, $.sourcemaps.init()))
-=======
-gulp.task('styles', () => {<% if (includeSass) { %>
-  return gulp.src('app/styles/*.scss')
-    .pipe($.plumber())
-    .pipe($.if(dev, $.sourcemaps.init()))
-    .pipe($.sass.sync({
-      outputStyle: 'expanded',
-      precision: 10,
-      includePaths: ['.']
-    }).on('error', $.sass.logError))<% } else { %>
-  return gulp.src('app/styles/*.css')
-    .pipe($.if(dev, $.sourcemaps.init()))<% } %>
->>>>>>> parent of 0475131... Changing paths to match mine
     .pipe($.postcss([
       autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']})
     ]))
     .pipe($.if(dev, $.sourcemaps.write()))
-    .pipe(gulp.dest('.tmp/styles'))
+    .pipe(gulp.dest('.tmp/css'))
     .pipe(reload({stream: true}));
 	});
 
 
 
 gulp.task('scripts', () => {
-  return gulp.src('app/scripts/**/*.js')
+  return gulp.src('app/js/**/*.js')
     .pipe($.plumber())
     .pipe($.if(dev, $.sourcemaps.init()))
     .pipe($.babel())
     .pipe($.if(dev, $.sourcemaps.write('.')))
-    .pipe(gulp.dest('.tmp/scripts'))
+    .pipe(gulp.dest('.tmp/js'))
     .pipe(reload({stream: true}));
 });
 
@@ -60,8 +46,8 @@ function lint(files) {
 }
 
 gulp.task('lint', () => {
-  return lint('app/scripts/**/*.js')
-    .pipe(gulp.dest('app/scripts'));
+  return lint('app/js/**/*.js')
+    .pipe(gulp.dest('app/js'));
 });
 
 gulp.task('html', ['styles', 'scripts'], () => {
@@ -83,9 +69,9 @@ gulp.task('html', ['styles', 'scripts'], () => {
 });
 
 gulp.task('images', () => {
-  return gulp.src('app/images/**/*')
+  return gulp.src('app/img/**/*')
     .pipe($.cache($.imagemin()))
-    .pipe(gulp.dest('dist/images'));
+    .pipe(gulp.dest('dist/img'));
 });
 
 gulp.task('fonts', () => {
@@ -120,7 +106,6 @@ gulp.task('serve', () => {
 
     gulp.watch([
       'app/*.html',
-<<<<<<< HEAD
       'app/js/**/*.js',
       'app/img/**/*',
       '.tmp/fonts/**/*'
@@ -128,19 +113,6 @@ gulp.task('serve', () => {
 
     gulp.watch('app/css/**/*.css', ['styles']);
     gulp.watch('app/js/**/*.js', ['scripts']);
-=======
-<% if (!includeBabel) { -%>
-      'app/scripts/**/*.js',
-<% } -%>
-      'app/images/**/*',
-      '.tmp/fonts/**/*'
-    ]).on('change', reload);
-
-    gulp.watch('app/styles/**/*.<%= includeSass ? 'scss' : 'css' %>', ['styles']);
-<% if (includeBabel) { -%>
-    gulp.watch('app/scripts/**/*.js', ['scripts']);
-<% } -%>
->>>>>>> parent of 0475131... Changing paths to match mine
     gulp.watch('app/fonts/**/*', ['fonts']);
     gulp.watch('bower.json', ['wiredep', 'fonts']);
   });
@@ -156,49 +128,8 @@ gulp.task('serve:dist', ['default'], () => {
   });
 });
 
-<<<<<<< HEAD
 // inject bower components
 gulp.task('wiredep', () => {
-=======
-<% if (includeBabel) { -%>
-gulp.task('serve:test', ['scripts'], () => {
-<% } else { -%>
-gulp.task('serve:test', () => {
-<% } -%>
-  browserSync.init({
-    notify: false,
-    port: 9000,
-    ui: false,
-    server: {
-      baseDir: 'test',
-      routes: {
-<% if (includeBabel) { -%>
-        '/scripts': '.tmp/scripts',
-<% } else { -%>
-        '/scripts': 'app/scripts',
-<% } -%>
-        '/bower_components': 'bower_components'
-      }
-    }
-  });
-
-<% if (includeBabel) { -%>
-  gulp.watch('app/scripts/**/*.js', ['scripts']);
-<% } -%>
-  gulp.watch(['test/spec/**/*.js', 'test/index.html']).on('change', reload);
-  gulp.watch('test/spec/**/*.js', ['lint:test']);
-});
-
-// inject bower components
-gulp.task('wiredep', () => {<% if (includeSass) { %>
-  gulp.src('app/styles/*.scss')
-    .pipe($.filter(file => file.stat && file.stat.size))
-    .pipe(wiredep({
-      ignorePath: /^(\.\.\/)+/
-    }))
-    .pipe(gulp.dest('app/styles'));
-<% } %>
->>>>>>> parent of 0475131... Changing paths to match mine
   gulp.src('app/*.html')
     .pipe(wiredep({
       exclude: ['bootstrap.js'],
