@@ -1,25 +1,9 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
-	/* Clear out the dist directory if it exists */
-    clean: {
-      dev: {
-        src: ['dist/*'],
-      },
-    },
-	//copy all app files to the dist folder
-	copy: {
-	  dev: {
-		files: [
-		  { expand: true, cwd: 'app/', src: ['sw.js'], dest: 'dist/'},
-		  { expand: true, cwd: 'app/', src: ['css/*'], dest: 'dist/' },
-		  { expand: true, cwd: 'app/', src: ['js/*'], dest: 'dist/'},
-		  { expand: true, cwd: 'app/', src: ['img/*'], dest: 'dist/' }
-		]
-	  }
-	},
     responsive_images: {
     //Resolution-Switching Cases here
+
       resolution_switch_case: {
         options: {
           engine: 'im',
@@ -58,8 +42,8 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           src: ['*.{gif,jpg,png}'],
-          cwd: 'app/images_src/',
-          dest: 'app/img/'
+          cwd: 'images_src/',
+          dest: 'img/'
         }]
       },
 
@@ -75,8 +59,8 @@ module.exports = function(grunt) {
         files: [{
             expand: true,
             //src: ['**/large_*.{jpg,gif,png}'], //Selects all files that begins with 'large_'
-            cwd: 'app/images_src/art_direction',
-            dest: 'app/img/'
+            cwd: 'images_src/art_direction',
+            dest: 'img/'
         }]
     },
     medium_art_direction: {
@@ -86,8 +70,8 @@ module.exports = function(grunt) {
         files: [{
             expand: true,
             //src: ['**/medium_*.{jpg,gif,png}'], //Selects all files that begins with 'medium_'
-            cwd: 'app/images_src/art_direction',
-            dest: 'app/img/'
+            cwd: 'images_src/art_direction',
+            dest: 'img/'
         }]
     },
     small_art_direction: {
@@ -97,8 +81,8 @@ module.exports = function(grunt) {
         files: [{
             expand: true,
             src: ['**/*.{jpg,gif,png}'], //Selects all files
-            cwd: 'app/images_src/art_direction',
-            dest: 'app/img/'
+            cwd: 'images_src/art_direction',
+            dest: 'img/'
         }]
     },
 },
@@ -109,8 +93,8 @@ module.exports = function(grunt) {
       files: {
         expand: true,
           src: ['*.{gif,jpg,png}'],
-          cwd: 'app/img/',
-          dest: 'app/img/'
+          cwd: 'img/',
+          dest: 'img/'
       },
       options: {
         binpath: require('webp-bin').path,
@@ -135,13 +119,31 @@ module.exports = function(grunt) {
         noAlpha: false,
         lossless: false
       }
-    }
+    },
+
+    /* Clear out the images directory if it exists */
+    clean: {
+      dev: {
+        src: ['img'],
+      },
+    },
+
+    /* Generate the images directory if it is missing */
+    mkdir: {
+      dev: {
+        options: {
+          create: ['img']
+        },
+      },
+    },
+
   });
 
   grunt.loadNpmTasks('grunt-responsive-images');
   grunt.loadNpmTasks('grunt-webp');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.registerTask('default', ['clean', 'copy', 'responsive_images', 'webp']);
+  grunt.loadNpmTasks('grunt-mkdir');
+  grunt.registerTask('default', ['clean', 'mkdir', 'responsive_images', 'webp']);
 
 };
